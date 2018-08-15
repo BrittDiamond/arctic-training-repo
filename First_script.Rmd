@@ -1,0 +1,22 @@
+---
+title: "Tidying Data in R"
+author: "Vibhor Agarwal"
+date: "August 15, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, warning=FALSE, message=FALSE}
+library(dplyr)
+library(tidyr)
+```
+
+Calling a masked function
+
+packageName::functionName
+
+exampele
+stats::filter()
