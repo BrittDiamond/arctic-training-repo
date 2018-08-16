@@ -73,7 +73,38 @@ tail(catch_df)
 
 ```
 
+#Split-Apply-Combine
+```{r}
+catch_summarized <- catch_df %>% 
+   filter(species == "Chinook") %>% 
+   group_by(Year,species) %>% 
+   summarise(mean_catch = mean(catch, na.rm = T), stdev_catch =sd(catch,na.rm = T), num_obs = n())
 
+print(catch_summarized)
+```
+
+
+# Joins
+
+```{r}
+region_defs <- read.csv(url("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.303.1", method = "libcurl"),
+                        stringsAsFactors = FALSE)
+
+
+head(region_defs)
+
+```
+
+
+```{r}
+catch_df %>% 
+  group_by(Region) %>% 
+  summarise(total_catch = sum(catch)) %>% 
+  left_join(catch_df, region_defs, by = c("Region" = "code"))
+
+head(catch_joined)
+
+```
 
 
 
