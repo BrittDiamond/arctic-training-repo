@@ -2,6 +2,6 @@
 Practice with GitHUB
 
 
-This is test repository for training
+This is sample repository for training
 
 And it has lots of **good** information
